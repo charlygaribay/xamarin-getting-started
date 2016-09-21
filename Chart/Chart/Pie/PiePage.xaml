@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+             xmlns:local="clr-namespace:Chart.Pie;assembly=Chart"
+             x:Class="Chart.Pie.PiePage">
+             
+
+  <chart:SfChart HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Black">
+
+    <chart:SfChart.BindingContext>
+      <local:PieViewModel  />
+    </chart:SfChart.BindingContext>
+
+    <chart:SfChart.Title>
+      <chart:ChartTitle Text="Pie Chart" TextColor="White"/>
+    </chart:SfChart.Title>
+
+    <chart:SfChart.Legend>
+      <chart:ChartLegend>
+
+        <chart:ChartLegend.LabelStyle>
+          <chart:ChartLegendLabelStyle TextColor="White"/>
+        </chart:ChartLegend.LabelStyle>
+
+      </chart:ChartLegend>
+    </chart:SfChart.Legend>
+
+    <chart:SfChart.Series>
+      <chart:DoughnutSeries ItemsSource="{Binding Accounts}"
+                            XBindingPath="Description"
+                            YBindingPath="Amount"
+                            ExplodeOnTouch="True"
+                            LegendIcon="Rectangle"
+                            EnableAnimation="True"
+                            StrokeWidth="2"
+                            StrokeColor="#fff">
+
+        <chart:DoughnutSeries.DataMarker>
+          <chart:ChartDataMarker LabelContent="Percentage" ShowLabel="True">
+          </chart:ChartDataMarker>
+        </chart:DoughnutSeries.DataMarker>
+
+        <chart:DoughnutSeries.ColorModel>
+          <chart:ChartColorModel Palette="Custom" CustomBrushes="{Binding Colors}"/>
+        </chart:DoughnutSeries.ColorModel>
+
+      </chart:DoughnutSeries>
+    </chart:SfChart.Series>
+
+  </chart:SfChart>
+  
+</ContentPage>
