@@ -35,10 +35,10 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Models\Account.cs" />
-    <Compile Include="Pie\PiePage.xaml.cs">
-      <DependentUpon>PiePage.xaml</DependentUpon>
+    <Compile Include="Doughnut\DoughnutPage.xaml.cs">
+      <DependentUpon>DoughnutPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pie\PieViewModel.cs" />
+    <Compile Include="Doughnut\DoughnutViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -63,7 +63,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pie\PiePage.xaml">
+    <EmbeddedResource Include="Doughnut\DoughnutPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

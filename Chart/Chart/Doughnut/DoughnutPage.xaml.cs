@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-namespace Chart.Pie
+namespace Chart.Doughnut
 {
-    public partial class PiePage : ContentPage
+    public partial class DoughnutPage : ContentPage
     {
-        public PiePage()
+        public DoughnutPage()
         {
             InitializeComponent();
         }

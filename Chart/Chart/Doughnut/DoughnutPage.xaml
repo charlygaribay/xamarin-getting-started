@@ -2,21 +2,21 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
-             xmlns:local="clr-namespace:Chart.Pie;assembly=Chart"
-             x:Class="Chart.Pie.PiePage">
+             xmlns:local="clr-namespace:Chart.Doughnut;assembly=Chart"
+             x:Class="Chart.Doughnut.DoughnutPage">
              
 
-  <chart:SfChart HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Black">
+  <chart:SfChart HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White">
 
     <chart:SfChart.BindingContext>
-      <local:PieViewModel  />
+      <local:DoughnutViewModel  />
     </chart:SfChart.BindingContext>
 
     <chart:SfChart.Title>
-      <chart:ChartTitle Text="Pie Chart" TextColor="White"/>
+      <chart:ChartTitle Text="Doughnut Chart" TextColor="White"/>
     </chart:SfChart.Title>
 
-    <chart:SfChart.Legend>
+    <!--chart:SfChart.Legend>
       <chart:ChartLegend>
 
         <chart:ChartLegend.LabelStyle>
@@ -24,22 +24,24 @@
         </chart:ChartLegend.LabelStyle>
 
       </chart:ChartLegend>
-    </chart:SfChart.Legend>
+    </chart:SfChart.Legend-->
 
     <chart:SfChart.Series>
       <chart:DoughnutSeries ItemsSource="{Binding Accounts}"
                             XBindingPath="Description"
                             YBindingPath="Amount"
-                            ExplodeOnTouch="True"
-                            LegendIcon="Rectangle"
+                            ExplodeOnTouch="False"
                             EnableAnimation="True"
-                            StrokeWidth="2"
-                            StrokeColor="#fff">
+                            StrokeWidth="4"
+                            StrokeColor="White"
+                            DoughnutCoefficient="0.8"
+                            EnableDataPointSelection="True"
+                            SelectedDataPointColor="#1094F6">
 
-        <chart:DoughnutSeries.DataMarker>
-          <chart:ChartDataMarker LabelContent="Percentage" ShowLabel="True">
+        <!--chart:DoughnutSeries.DataMarker>
+          <chart:ChartDataMarker ShowLabel="False">
           </chart:ChartDataMarker>
-        </chart:DoughnutSeries.DataMarker>
+        </chart:DoughnutSeries.DataMarker-->
 
         <chart:DoughnutSeries.ColorModel>
           <chart:ChartColorModel Palette="Custom" CustomBrushes="{Binding Colors}"/>

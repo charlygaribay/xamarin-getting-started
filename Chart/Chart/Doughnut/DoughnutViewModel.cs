@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 using Chart.Models;
 using Xamarin.Forms;
 
-namespace Chart.Pie
+namespace Chart.Doughnut
 {
-    public class PieViewModel
+    public class DoughnutViewModel
     {
         public ObservableCollection<Account> Accounts { get; set; }
 
         public List<Color> Colors { get; set; }
 
-        public PieViewModel()
+        public DoughnutViewModel()
         {
             Accounts = new ObservableCollection<Account>();
             Accounts.Add(new Account { Description = "Checking 1", Amount = 1000 });
@@ -26,9 +26,7 @@ namespace Chart.Pie
             Accounts.Add(new Account { Description = "Checking 13", Amount = 13000 });
 
             Colors = new List<Color>();
-            Colors.Add(Color.FromHex("#a3e1d4"));
-            Colors.Add(Color.FromHex("#dedede"));
-            Colors.Add(Color.FromHex("#b5b8cf"));
+            Colors.Add(Color.FromHex("#D2D4D7"));
         }
     }
 }

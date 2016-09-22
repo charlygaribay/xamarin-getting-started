@@ -11,7 +11,7 @@ namespace Chart
     {
         public App()
         {
-            MainPage = new NavigationPage(new Pie.PiePage());
+            MainPage = new NavigationPage(new Doughnut.DoughnutPage());
         }
     }
 }
