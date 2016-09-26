@@ -8,23 +8,9 @@
 
   <chart:SfChart HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White">
 
-    <chart:SfChart.BindingContext>
-      <local:DoughnutViewModel  />
-    </chart:SfChart.BindingContext>
-
     <chart:SfChart.Title>
       <chart:ChartTitle Text="Doughnut Chart" TextColor="White"/>
     </chart:SfChart.Title>
-
-    <!--chart:SfChart.Legend>
-      <chart:ChartLegend>
-
-        <chart:ChartLegend.LabelStyle>
-          <chart:ChartLegendLabelStyle TextColor="White"/>
-        </chart:ChartLegend.LabelStyle>
-
-      </chart:ChartLegend>
-    </chart:SfChart.Legend-->
 
     <chart:SfChart.Series>
       <chart:DoughnutSeries ItemsSource="{Binding Accounts}"
@@ -32,16 +18,11 @@
                             YBindingPath="Amount"
                             ExplodeOnTouch="False"
                             EnableAnimation="True"
-                            StrokeWidth="4"
+                            StrokeWidth="2"
                             StrokeColor="White"
-                            DoughnutCoefficient="0.8"
+                            DoughnutCoefficient="0.75"
                             EnableDataPointSelection="True"
                             SelectedDataPointColor="#1094F6">
-
-        <!--chart:DoughnutSeries.DataMarker>
-          <chart:ChartDataMarker ShowLabel="False">
-          </chart:ChartDataMarker>
-        </chart:DoughnutSeries.DataMarker-->
 
         <chart:DoughnutSeries.ColorModel>
           <chart:ChartColorModel Palette="Custom" CustomBrushes="{Binding Colors}"/>

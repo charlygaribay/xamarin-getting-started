@@ -10,9 +10,14 @@ namespace Chart.Doughnut
 {
     public partial class DoughnutPage : ContentPage
     {
+        private DoughnutViewModel viewModel;
+
         public DoughnutPage()
         {
             InitializeComponent();
+
+            viewModel = new DoughnutViewModel();
+            BindingContext = viewModel;
         }
     }
 }
