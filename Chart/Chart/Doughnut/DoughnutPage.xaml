@@ -4,6 +4,12 @@
              xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
              xmlns:local="clr-namespace:Chart.Doughnut;assembly=Chart"
              x:Class="Chart.Doughnut.DoughnutPage">
+  
+  <ContentPage.Resources>
+		<ResourceDictionary>
+			<local:SelectionConverter x:Key="SelectionConverter" />
+		</ResourceDictionary>
+	</ContentPage.Resources>
              
 
   <chart:SfChart HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White">
@@ -31,6 +37,12 @@
       </chart:DoughnutSeries>
     </chart:SfChart.Series>
 
+    <chart:SfChart.Behaviors>
+      <local:DoughnutSelectionChangedBehavior Command="{Binding OnSelectionChangedCommand}" 
+                                              Converter="{StaticResource SelectionConverter}" />
+    </chart:SfChart.Behaviors>
+
   </chart:SfChart>
-  
+ 
+
 </ContentPage>

@@ -34,6 +34,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Doughnut\DoughnutSelectionChangedBehavior.cs" />
+    <Compile Include="Doughnut\SelectionConverter.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Doughnut\DoughnutPage.xaml.cs">
       <DependentUpon>DoughnutPage.xaml</DependentUpon>
