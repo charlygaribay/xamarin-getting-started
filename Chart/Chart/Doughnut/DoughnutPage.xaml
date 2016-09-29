@@ -4,45 +4,48 @@
              xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
              xmlns:local="clr-namespace:Chart.Doughnut;assembly=Chart"
              x:Class="Chart.Doughnut.DoughnutPage">
-  
-  <ContentPage.Resources>
-		<ResourceDictionary>
-			<local:SelectionConverter x:Key="SelectionConverter" />
-		</ResourceDictionary>
-	</ContentPage.Resources>
-             
 
-  <chart:SfChart HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White">
+  <StackLayout Orientation="Vertical">
+    <chart:SfChart BackgroundColor="White" HeightRequest="200">
 
-    <chart:SfChart.Title>
-      <chart:ChartTitle Text="Doughnut Chart" TextColor="White"/>
-    </chart:SfChart.Title>
+      <chart:SfChart.Title>
+        <chart:ChartTitle Text="Doughnut Chart" TextColor="White"/>
+      </chart:SfChart.Title>
 
-    <chart:SfChart.Series>
-      <chart:DoughnutSeries ItemsSource="{Binding Accounts}"
-                            XBindingPath="Description"
-                            YBindingPath="Amount"
-                            ExplodeOnTouch="False"
-                            EnableAnimation="True"
-                            StrokeWidth="2"
-                            StrokeColor="White"
-                            DoughnutCoefficient="0.75"
-                            EnableDataPointSelection="True"
-                            SelectedDataPointColor="#1094F6">
+      <chart:SfChart.Series>
+        <chart:DoughnutSeries ItemsSource="{Binding Accounts}"
+                              XBindingPath="Description"
+                              YBindingPath="Amount"
+                              ExplodeOnTouch="False"
+                              EnableAnimation="True"
+                              StrokeWidth="2"
+                              StrokeColor="White"
+                              DoughnutCoefficient="0.75"
+                              EnableDataPointSelection="True"
+                              SelectedDataPointColor="#1094F6"
+                              SelectedDataPointIndex="{Binding Chart_SelectionIndex}">
 
-        <chart:DoughnutSeries.ColorModel>
-          <chart:ChartColorModel Palette="Custom" CustomBrushes="{Binding Colors}"/>
-        </chart:DoughnutSeries.ColorModel>
+          <chart:DoughnutSeries.ColorModel>
+            <chart:ChartColorModel Palette="Custom" CustomBrushes="{Binding Colors}"/>
+          </chart:DoughnutSeries.ColorModel>
 
-      </chart:DoughnutSeries>
-    </chart:SfChart.Series>
+        </chart:DoughnutSeries>
+      </chart:SfChart.Series>
 
-    <chart:SfChart.Behaviors>
-      <local:DoughnutSelectionChangedBehavior Command="{Binding OnSelectionChangedCommand}" 
-                                              Converter="{StaticResource SelectionConverter}" />
-    </chart:SfChart.Behaviors>
+    </chart:SfChart>
 
-  </chart:SfChart>
+    <ListView ItemsSource="{Binding Accounts}" HeightRequest="200" SelectedItem="{Binding List_SelectedItem}">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <StackLayout Padding="5,5">
+              <Label Text="{Binding Description}" />
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
  
 
 </ContentPage>
