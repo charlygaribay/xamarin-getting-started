@@ -6,14 +6,15 @@
              x:Class="Chart.Doughnut.DoughnutPage">
 
   <StackLayout Orientation="Vertical">
-    <chart:SfChart BackgroundColor="White" HeightRequest="200">
+    <chart:SfChart BackgroundColor="White" HeightRequest="200" SelectionChanged="OnSelectionChanged">
 
       <chart:SfChart.Title>
         <chart:ChartTitle Text="Doughnut Chart" TextColor="White"/>
       </chart:SfChart.Title>
 
       <chart:SfChart.Series>
-        <chart:DoughnutSeries ItemsSource="{Binding Accounts}"
+        <chart:DoughnutSeries x:Name="doughnutSeries"
+                              ItemsSource="{Binding Accounts}"
                               XBindingPath="Description"
                               YBindingPath="Amount"
                               ExplodeOnTouch="False"
@@ -22,19 +23,20 @@
                               StrokeColor="White"
                               DoughnutCoefficient="0.75"
                               EnableDataPointSelection="True"
+                              ListenPropertyChange="True"
                               SelectedDataPointColor="#1094F6"
-                              SelectedDataPointIndex="{Binding Chart_SelectionIndex}">
+                              SelectedDataPointIndex="{Binding Chart_SelectionIndex, Mode=TwoWay}">
 
           <chart:DoughnutSeries.ColorModel>
             <chart:ChartColorModel Palette="Custom" CustomBrushes="{Binding Colors}"/>
           </chart:DoughnutSeries.ColorModel>
-
-        </chart:DoughnutSeries>
+        
+      </chart:DoughnutSeries>
       </chart:SfChart.Series>
 
     </chart:SfChart>
 
-    <ListView ItemsSource="{Binding Accounts}" HeightRequest="200" SelectedItem="{Binding List_SelectedItem}">
+    <ListView ItemsSource="{Binding Accounts}" HeightRequest="200" SelectedItem="{Binding List_SelectedItem, Mode=TwoWay}">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>

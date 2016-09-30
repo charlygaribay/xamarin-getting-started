@@ -9,6 +9,8 @@ namespace Chart.Doughnut
 {
     public class DoughnutViewModel : INotifyPropertyChanged
     {
+        private Updater updater = Updater.None;
+
         #region Chart
         private int Chart_selectionIndex;
         public int Chart_SelectionIndex
@@ -19,7 +21,21 @@ namespace Chart.Doughnut
             }
             set
             {
+                if (updater == Updater.None)
+                {
+                    updater = Updater.Chart;
+                }
+
                 Chart_selectionIndex = value;
+
+                if (updater == Updater.Chart)
+                {
+                    var item = Accounts[value];
+                    List_SelectedItem = item;
+
+                    updater = Updater.None;
+                }
+
                 OnPropertyChanged();
             }
         }
@@ -35,10 +51,20 @@ namespace Chart.Doughnut
             }
             set
             {
+                if (updater == Updater.None)
+                {
+                    updater = Updater.List;
+                }
+
                 List_selectedItem = value;
 
-                var index = Accounts.IndexOf(value);
-                Chart_SelectionIndex = index;
+                if (updater == Updater.List)
+                {
+                    var index = Accounts.IndexOf(value);
+                    Chart_SelectionIndex = index;
+
+                    updater = Updater.None;
+                }
 
                 OnPropertyChanged();
             }
@@ -67,5 +93,12 @@ namespace Chart.Doughnut
             Colors = new List<Color>();
             Colors.Add(Color.FromHex("#D2D4D7"));
         }
+    }
+
+    public enum Updater
+    {
+        None,
+        List,
+        Chart
     }
 }

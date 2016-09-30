@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Syncfusion.SfChart.XForms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,11 @@ namespace Chart.Doughnut
 
             viewModel = new DoughnutViewModel();
             BindingContext = viewModel;
+        }
+
+        private void OnSelectionChanged(object sender, ChartSelectionEventArgs args)
+        {
+
         }
     }
 }
