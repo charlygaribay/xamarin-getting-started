@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Xamarin.Forms;
 
-namespace Chart
+namespace Phoneword
 {
-    public class App : Application
+    public partial class CallHistoryPage : ContentPage
     {
-        public App()
+        public CallHistoryPage()
         {
-            MainPage = new NavigationPage(new Doughnut.DoughnutPage());
+            InitializeComponent();
         }
     }
 }

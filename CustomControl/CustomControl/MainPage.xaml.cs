@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Xamarin.Forms;
 
-namespace Chart
+namespace CustomControl
 {
-    public class App : Application
+    public partial class MainPage : ContentPage
     {
-        public App()
+        public MainPage()
         {
-            MainPage = new NavigationPage(new Doughnut.DoughnutPage());
+            InitializeComponent();
         }
     }
 }
