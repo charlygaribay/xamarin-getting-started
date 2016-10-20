@@ -30,13 +30,8 @@
           <chart:DoughnutSeries.ColorModel>
             <chart:ChartColorModel Palette="Custom" CustomBrushes="{Binding Colors}"/>
           </chart:DoughnutSeries.ColorModel>
-<<<<<<< HEAD
-
-        </chart:DoughnutSeries>
-=======
-        
+ 
       </chart:DoughnutSeries>
->>>>>>> origin/master
       </chart:SfChart.Series>
 
     </chart:SfChart>
@@ -53,9 +48,4 @@
       </ListView.ItemTemplate>
     </ListView>
   </StackLayout>
-<<<<<<< HEAD
-=======
- 
-
->>>>>>> origin/master
 </ContentPage>
